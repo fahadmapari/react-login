@@ -108,12 +108,12 @@ const Register = () => {
         <input
           type="password"
           id="password"
-          onChange={(e) => setMatch(e.target.value)}
+          onChange={(e) => setPwd(e.target.value)}
           required
           aria-invalid={validPwd ? "false" : "true"}
           aria-describedby="pwdnote"
-          onFocus={() => setUserFocus(true)}
-          onBlur={() => setUserFocus(false)}
+          onFocus={() => setPwdFocus(true)}
+          onBlur={() => setPwdFocus(false)}
         />
         <p
           id="pwdnote"
@@ -164,6 +164,14 @@ const Register = () => {
           Sign Up
         </button>
       </form>
+      <p>
+        Already registered?
+        <br />
+        <span className="line">
+          {/* router link */}
+          <a href="#">Sign In</a>
+        </span>
+      </p>
     </section>
   );
 };
