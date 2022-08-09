@@ -66,6 +66,11 @@ button {
 
 button {
   padding: 0.5rem;
+  cursor: pointer;
+}
+
+button:disabled{
+    cursor: not-allowed;
 }
 
 .instructions {
