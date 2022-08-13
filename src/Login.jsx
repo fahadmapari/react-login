@@ -1,13 +1,16 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useContext } from "react";
+import AuthContext from "./context/AuthProvider";
 
 const Login = () => {
+  const { auth, setAuth } = useContext(AuthContext);
+
   const userRef = useRef();
   const errRef = useRef();
 
   const [user, setUser] = useState("");
   const [pwd, setPwd] = useState("");
   const [errMsg, setErrMsg] = useState("");
-  const [success, setSucces] = useState(false);
+  const [success, setSucces] = useState(auth ? true : false);
 
   useEffect(() => {
     userRef.current.focus();
@@ -19,6 +22,12 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setAuth({
+      user,
+      pwd,
+    });
+    setUser("");
+    setPwd("");
     setSucces(true);
   };
 
